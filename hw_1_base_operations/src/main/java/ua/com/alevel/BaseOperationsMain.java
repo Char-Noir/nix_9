@@ -2,6 +2,9 @@ package ua.com.alevel;
 
 import ua.com.alevel.Util.ComparatorByValue;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -17,7 +20,8 @@ public class BaseOperationsMain {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //Scanner input = new Scanner(System.in);
 
         System.out.println("Executing first Task!");
         System.out.println("Реализуйте задачу, которая принимает строку с\nконсоли и вычленяет все числа и находит их сумму");
@@ -26,7 +30,8 @@ public class BaseOperationsMain {
         int task1 = 0;
 
         try {
-            forSum = input.nextLine();
+            //forSum = input.nextLine();
+            forSum=br.readLine();
             task1 = stringToSum(forSum);
         } catch (Exception e) {
             e.getStackTrace();
@@ -42,7 +47,8 @@ public class BaseOperationsMain {
         Map<Character,Integer> task2 = null;
 
         try {
-            forSort = input.nextLine();
+            //forSort = input.nextLine();
+            forSort = br.readLine();
             task2 = stringToSortedMap(forSort);
         } catch (Exception e) {
             e.getStackTrace();
@@ -54,7 +60,13 @@ public class BaseOperationsMain {
         System.out.println("Executing third Task!");
         System.out.println("Определите, когда заканчивается указанный урок. Начало занятий - 9:00. \nДлина урока - 45 минут. Четный перерыв - 5 минут, нечетный перерыв - 15 минут.");
 
-        int lesson = input.nextInt();
+        //int lesson = input.nextInt();
+        int lesson = 0;
+        try {
+            lesson = Integer.parseInt(br.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         int[] time = calculateLessonEnd(lesson);
 
         System.out.printf("Result of Task: Lesson № %d ends at %d:%d\n", lesson, time[0], time[1]);
