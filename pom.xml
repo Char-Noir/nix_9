@@ -12,6 +12,7 @@
         <module>hw_1_base_operations</module>
         <module>utils</module>
         <module>hw_2_strings</module>
+        <module>lib_reverse_string</module>
     </modules>
 
 
