@@ -22,7 +22,7 @@
     </properties>
 
     <build>
-        <finalName>maven</finalName>
+        <finalName>utils</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
