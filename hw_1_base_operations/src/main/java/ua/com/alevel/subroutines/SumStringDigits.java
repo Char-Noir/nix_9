@@ -35,17 +35,17 @@ public class SumStringDigits extends ConsoleSubroutine {
     @Override
     public void run(BufferedReader br) {
         String forSum;
-        int task1 = 0;
+        int sum = 0;
 
         try {
             //forSum = input.nextLine();
             forSum = br.readLine();
-            task1 = stringToSum(forSum);
+            sum = stringToSum(forSum);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
             e.getStackTrace();
         }
 
-        System.out.printf("Результат задания: %s\n", (task1 == 0) ? "в строке нет цифр!" : String.valueOf(task1));
+        System.out.printf("Результат задания: %s\n", (sum == 0) ? "в строке нет цифр!" : String.valueOf(sum));
     }
 }

@@ -49,18 +49,18 @@ public class LettersCounterAndSorter extends ConsoleSubroutine {
     public void run(BufferedReader br) {
 
         String forSort;
-        Map<Character, Integer> task2 = null;
+        Map<Character, Integer> chars = null;
 
         try {
             //forSort = input.nextLine();
             forSort = br.readLine();
-            task2 = stringToSortedMap(forSort);
+            chars = stringToSortedMap(forSort);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
             e.getStackTrace();
         }
 
-        System.out.println(new StringBuilder("Результат задания: ").append((task2 == null || task2.isEmpty()) ? "нет символов для вывода!" : task2).append("\n"));
+        System.out.println(new StringBuilder("Результат задания: ").append((chars == null || chars.isEmpty()) ? "нет символов для вывода!" : chars).append("\n"));
 
     }
 }
