@@ -21,7 +21,10 @@ public class ConsoleHelper {
             System.out.println(programDescription);
 
             for (String line = br.readLine(); line != null; line = br.readLine()) {
-
+                if(!line.matches("[0-9]+")){
+                    System.out.println("Хорошего дня!😀");
+                    break;
+                }
                 int choice = Integer.parseInt(line)-1;
                 if (choice >= 0 && choice < subroutines.size()) {
                     ConsoleSubroutine subroutine = subroutines.get(choice);
