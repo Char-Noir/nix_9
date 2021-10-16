@@ -25,6 +25,7 @@
             <groupId>ua.com.alevel</groupId>
             <artifactId>utils</artifactId>
             <version>1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
