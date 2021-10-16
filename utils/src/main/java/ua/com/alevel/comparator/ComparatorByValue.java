@@ -1,4 +1,4 @@
-package ua.com.alevel.Util;
+package ua.com.alevel.comparator;
 
 import java.util.Comparator;
 import java.util.Map;
