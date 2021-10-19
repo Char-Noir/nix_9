@@ -1,9 +1,9 @@
 package ua.com.alevel.subroutines;
 
-        import ua.com.alevel.ReverseString;
-        import ua.com.alevel.console.ConsoleSubroutine;
+import ua.com.alevel.ReverseString;
+import ua.com.alevel.console.ConsoleSubroutine;
 
-        import java.io.BufferedReader;
+import java.io.BufferedReader;
 
 public class ReverseByWords extends ConsoleSubroutine {
 
@@ -27,10 +27,10 @@ public class ReverseByWords extends ConsoleSubroutine {
 
         try {
             normal = br.readLine();
-            reversed = ReverseString.reverse(normal,true);
+            reversed = ReverseString.reverse(normal, true);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            e.getStackTrace();
+            e.printStackTrace();
         }
 
         System.out.println(new StringBuilder("Результат задания: ").append(normal).append(" -> ").append(reversed).append("\n"));

@@ -30,7 +30,7 @@ public class SimpleReverse extends ConsoleSubroutine {
             reversed = ReverseString.reverse(normal);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            e.getStackTrace();
+            e.printStackTrace();
         }
 
         System.out.println(new StringBuilder("Результат задания: ").append(normal).append(" -> ").append(reversed).append("\n"));
