@@ -1,9 +1,7 @@
 package ua.com.alevel;
 
-import ua.com.alevel.console.ConsoleHelper;
-import ua.com.alevel.console.ConsoleSubroutine;
-import ua.com.alevel.subroutines.ReverseByWords;
-import ua.com.alevel.subroutines.SimpleReverse;
+import ua.com.alevel.console.*;
+import ua.com.alevel.subroutines.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +11,8 @@ public class StringsMain {
         List<ConsoleSubroutine> subroutines = new ArrayList<>();
         subroutines.add(new SimpleReverse());
         subroutines.add(new ReverseByWords());
+        subroutines.add(new ReverseSubString());
+        subroutines.add(new ReverseByIndexes());
         ConsoleHelper.runConsoleApplication(subroutines);
     }
 }
