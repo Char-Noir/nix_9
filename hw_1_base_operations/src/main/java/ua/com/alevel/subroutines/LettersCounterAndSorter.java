@@ -57,7 +57,7 @@ public class LettersCounterAndSorter extends ConsoleSubroutine {
             chars = stringToSortedMap(forSort);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            e.getStackTrace();
+            e.printStackTrace();
         }
 
         System.out.println(new StringBuilder("Результат задания: ").append((chars == null || chars.isEmpty()) ? "нет символов для вывода!" : chars).append("\n"));
