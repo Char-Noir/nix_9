@@ -31,6 +31,7 @@ public class ConsoleHelper {
                     System.out.println("Задание №"+(choice+1));
                     System.out.println(DELIMETR);
                     System.out.println(subroutine.getLongDescription());
+                    System.out.println("Ожидаемый ввод: "+subroutine.getExpectedInput());
                     subroutine.run(br);
                     System.out.println(programDescription);
                 } else {
