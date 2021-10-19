@@ -16,6 +16,7 @@ public final class LessonEnd extends ConsoleSubroutine {
     public final String SHORT_DESCRIPTION = "Показывает время окончания любого урока от 1 до 10 включительно.";
 
     private final String ERROR_MESSAGE = "Неверно введенный данные. Напоминаю допустимые значения номера урока от 1 до 10 включительно!";
+    public final String EXPECTED_INPUT = "Число от 1 до 10 включительно";
 
     //Input number of a lesson
     //Output two digits: hour and minutes of ending lesson
@@ -33,6 +34,11 @@ public final class LessonEnd extends ConsoleSubroutine {
     @Override
     public String getLongDescription() {
         return LONG_DESCRIPTION;
+    }
+
+    @Override
+    public String getExpectedInput() {
+        return EXPECTED_INPUT;
     }
 
     @Override

@@ -9,6 +9,8 @@ public class SumStringDigits extends ConsoleSubroutine {
     public final String SHORT_DESCRIPTION = "Сумма всех цифр строки";
     public final String LONG_DESCRIPTION = "Задача принимает строку с\nконсоли и вычленяет все цифры и находит их сумму";
 
+    public final String EXPECTED_INPUT = "Строка с цифрами";
+
     //Input string with integers within
     //Output sum of one-digit integers in string
     private static int stringToSum(String input) {
@@ -33,6 +35,11 @@ public class SumStringDigits extends ConsoleSubroutine {
     }
 
     @Override
+    public String getExpectedInput() {
+        return EXPECTED_INPUT;
+    }
+
+    @Override
     public void run(BufferedReader br) {
         String forSum;
         int sum = 0;
@@ -43,7 +50,7 @@ public class SumStringDigits extends ConsoleSubroutine {
             sum = stringToSum(forSum);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            e.getStackTrace();
+            e.printStackTrace();
         }
 
         System.out.printf("Результат задания: %s\n", (sum == 0) ? "в строке нет цифр!" : String.valueOf(sum));
