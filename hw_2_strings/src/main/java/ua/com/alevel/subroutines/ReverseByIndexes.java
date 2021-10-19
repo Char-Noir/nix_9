@@ -7,8 +7,8 @@ import java.io.BufferedReader;
 
 public class ReverseByIndexes extends ConsoleSubroutine {
 
-    public final String LONG_DESCRIPTION = "Возвращает строку, в которой реверсирована подстрока, указанная индексами начала и конца. Ex: \"Hello world\" , \"world\" -> \"Hello dlrow \"";
-    public final String SHORT_DESCRIPTION = "Реверсирует подстроку в строке.";
+    public final String LONG_DESCRIPTION = "Возвращает строку, в которой реверсирована подстрока, указанная индексами начала и конца. Ex: \"Hello world , 3, 7\"  -> \"Helol rowld \"";
+    public final String SHORT_DESCRIPTION = "Реверсирует подстроку в строке по индексам начала и конца.";
 
     public final String EXPECTED_INPUT = "Строка и индексы начала и конца подстроки, которую будут реверсировать, разделенные символом зяпятой";
 
@@ -35,7 +35,7 @@ public class ReverseByIndexes extends ConsoleSubroutine {
         try {
             String string = br.readLine();
             strings = string.split(",");
-            reversed = ReverseString.reverse(strings[0], Integer.parseInt(strings[1]), Integer.parseInt(strings[2]));
+            reversed = ReverseString.reverse(strings[0], Integer.parseInt(strings[1]), Integer.parseInt(strings[2]),true);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
             strings = new String[]{"", "", ""};

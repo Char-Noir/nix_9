@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 
 public class ReverseSubString extends ConsoleSubroutine {
 
-    public final String LONG_DESCRIPTION = "Возвращает строку, в которой реверсирована подстрока. Ex: \"Hello world\" , \"world\" -> \"Hello dlrow \"";
+    public final String LONG_DESCRIPTION = "Возвращает строку, в которой реверсирована подстрока. Ex: \"Hello world , world\" -> \"Hello dlrow \"";
     public final String SHORT_DESCRIPTION = "Реверсирует подстроку в строке.";
 
     public final String EXPECTED_INPUT = "Строка и подстрока, которую будут реверсировать, разделенные символом зяпятой";
