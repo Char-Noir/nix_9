@@ -38,7 +38,7 @@ public class ReverseSubString extends ConsoleSubroutine {
             reversed = ReverseString.reverse(strings[0], strings[1].strip());
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
-            strings= new String[]{"", ""};
+            strings = new String[]{"", ""};
             e.printStackTrace();
         }
 

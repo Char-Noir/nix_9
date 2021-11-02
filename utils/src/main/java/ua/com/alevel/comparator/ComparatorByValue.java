@@ -11,7 +11,7 @@ public class ComparatorByValue implements Comparator<Character> {
     }
 
     public int compare(Character a, Character b) {
-        if(a.equals(b)) return 0;
+        if (a.equals(b)) return 0;
         if (base.get(a) >= base.get(b)) {
             return -1;
         } else {

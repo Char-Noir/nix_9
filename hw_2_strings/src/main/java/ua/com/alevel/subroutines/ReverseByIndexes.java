@@ -35,7 +35,7 @@ public class ReverseByIndexes extends ConsoleSubroutine {
         try {
             String string = br.readLine();
             strings = string.split(",");
-            reversed = ReverseString.reverse(strings[0], Integer.parseInt(strings[1]), Integer.parseInt(strings[2]),true);
+            reversed = ReverseString.reverse(strings[0], Integer.parseInt(strings[1]), Integer.parseInt(strings[2]), true);
         } catch (Exception e) {
             System.err.println(ERROR_MESSAGE);
             strings = new String[]{"", "", ""};

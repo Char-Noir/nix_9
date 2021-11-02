@@ -21,17 +21,17 @@ public class ConsoleHelper {
             System.out.println(programDescription);
 
             for (String line = br.readLine(); line != null; line = br.readLine()) {
-                if(!line.matches("[0-9]+")){
+                if (!line.matches("[0-9]+")) {
                     System.out.println("Хорошего дня!😀");
                     break;
                 }
-                int choice = Integer.parseInt(line)-1;
+                int choice = Integer.parseInt(line) - 1;
                 if (choice >= 0 && choice < subroutines.size()) {
                     ConsoleSubroutine subroutine = subroutines.get(choice);
-                    System.out.println("Задание №"+(choice+1));
+                    System.out.println("Задание №" + (choice + 1));
                     System.out.println(DELIMETR);
                     System.out.println(subroutine.getLongDescription());
-                    System.out.println("Ожидаемый ввод: "+subroutine.getExpectedInput());
+                    System.out.println("Ожидаемый ввод: " + subroutine.getExpectedInput());
                     subroutine.run(br);
                     System.out.println(programDescription);
                 } else {
