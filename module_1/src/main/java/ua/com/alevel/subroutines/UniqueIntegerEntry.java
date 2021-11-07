@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class UniqueIntegerEntry extends ConsoleSubroutine {
+
     public final String LONG_DESCRIPTION = "Считает количество уникальных символов в масиве целых чисел. 1 4 5 1 1 3 -> 4";
     public final String SHORT_DESCRIPTION = "Выводит число уникальных символов";
-
     public final String EXPECTED_INPUT = "Строка, внутри которой каждое число разделено пробелом. Ввод значений таких как \"15\" будет расценен как число 15.";
 
     @Override

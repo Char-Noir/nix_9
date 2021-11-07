@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FirstModuleMain {
+
     public static void main(String[] args) {
         List<ConsoleSubroutine> subroutines = new ArrayList<>();
         subroutines.add(new UniqueIntegerEntry());

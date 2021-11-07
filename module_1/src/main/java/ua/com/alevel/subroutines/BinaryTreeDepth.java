@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinaryTreeDepth extends ConsoleSubroutine {
+
     public final String LONG_DESCRIPTION = "Позволяет посчитать максимальную глубину бинарного дерева.";
     public final String SHORT_DESCRIPTION = "Глубина бинарного дерева.";
 

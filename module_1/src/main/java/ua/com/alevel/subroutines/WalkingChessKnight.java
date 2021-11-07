@@ -8,11 +8,10 @@ import ua.com.alevel.level1.entity.ChessPosition;
 import java.io.BufferedReader;
 
 public class WalkingChessKnight extends ConsoleSubroutine {
+
     public final String LONG_DESCRIPTION = "Позволяет вам понять может ли Конь походить с одной позиции на другую. Введите первое положение и выберете второе из графического представления.";
     public final String SHORT_DESCRIPTION = "Указывает может ли Конь походить с одной позиции на другую.";
-    public final String SECOND_MOVE = "Выберите вашу новую позицию";
     public final String NEW_ITER = "Желаете сдвинуть коня?(Да\\Нет)";
-
     public final String EXPECTED_INPUT = "Две строки с указанием позиции Коня на шахматной доске. А4 \\n B6. 4А будет воспринято как неверный ввод. Принимаеться только латиница.";
 
     @Override
@@ -70,5 +69,4 @@ public class WalkingChessKnight extends ConsoleSubroutine {
             System.out.println(EXPECTED_INPUT);
         }
     }
-
 }

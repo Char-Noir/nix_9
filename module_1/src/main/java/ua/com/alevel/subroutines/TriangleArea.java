@@ -7,9 +7,9 @@ import ua.com.alevel.level1.entity.Point2D;
 import java.io.BufferedReader;
 
 public class TriangleArea extends ConsoleSubroutine {
+
     public final String LONG_DESCRIPTION = "Считает площадь треугольника, если такой существует. Используем формулу для просчета площи по координатам трех вершин.";
     public final String SHORT_DESCRIPTION = "Площадь треугольника.";
-
     public final String EXPECTED_INPUT = "Три строки, где указаны координаты вершин через зяпятую. 1,2 \\n 2,4 \\n 3,6\\n";
 
     @Override
