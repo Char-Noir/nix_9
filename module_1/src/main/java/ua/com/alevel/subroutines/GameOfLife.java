@@ -7,9 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class GameOfLife extends ConsoleSubroutine {
+
     public final String LONG_DESCRIPTION = "Просчитывает новую итерацию игры в жизнь.";
     public final String SHORT_DESCRIPTION = "Игра в жизнь";
-
     public final String EXPECTED_INPUT = "Для новой итерации напечатайте что угодно длиной до 2 символов. Для выхода введите что-то длинее 2 символов.";
 
     @Override
@@ -44,5 +44,4 @@ public class GameOfLife extends ConsoleSubroutine {
             }
         }
     }
-
 }

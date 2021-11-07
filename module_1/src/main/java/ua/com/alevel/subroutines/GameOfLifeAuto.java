@@ -11,6 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class GameOfLifeAuto extends ConsoleSubroutine {
+
     public static boolean isWorking = true;
     public static int[][] cells;
     public static BufferedReader br;
@@ -74,5 +75,4 @@ public class GameOfLifeAuto extends ConsoleSubroutine {
         cells = GameOfLifeHelper.generate();
         br = bufferedReader;
     }
-
 }

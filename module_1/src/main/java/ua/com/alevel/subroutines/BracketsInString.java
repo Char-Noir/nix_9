@@ -6,6 +6,7 @@ import ua.com.alevel.level2.BracketsHelper;
 import java.io.BufferedReader;
 
 public class BracketsInString extends ConsoleSubroutine {
+
     public final String LONG_DESCRIPTION = "Проверяет валидность строки. Строка валидна, если все открытые скобочки закрыты соответствующими и в нужном порядке.";
     public final String SHORT_DESCRIPTION = "Скобочки в строке";
 
@@ -32,5 +33,4 @@ public class BracketsInString extends ConsoleSubroutine {
         }
         System.out.println(new StringBuilder("Результат задания: ").append(" строка \"").append(brackets == null ? "нет строки" : brackets).append("\" ").append(isValid ? "валидна" : "не валидна").append("\n"));
     }
-
 }
