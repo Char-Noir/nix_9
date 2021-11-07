@@ -17,6 +17,8 @@
         <module>hw_3_start_oop</module>
         <module>array_helper</module>
         <module>module_1</module>
+        <module>mathset_lib</module>
+        <module>hw_5_collections</module>
     </modules>
 
 

@@ -3,7 +3,6 @@ package ua.com.alevel.console;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Objects;
 
 public class ConsoleHelper {
 
@@ -32,7 +31,7 @@ public class ConsoleHelper {
                     System.out.println("Задание №" + (choice + 1));
                     System.out.println(DELIMETR);
                     System.out.println(subroutine.getLongDescription());
-                    if (!Objects.equals(subroutine.getExpectedInput(), "")) {
+                    if (subroutine.getExpectedInput() != "") {
                         System.out.println("Ожидаемый ввод: " + subroutine.getExpectedInput());
                     }
                     subroutine.run(br);
