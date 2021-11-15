@@ -107,7 +107,13 @@ public class ConsoleHelper {
     private static void printDescriptions(List<? extends Subroutine> subroutines) {
         StringBuilder programDescription = new StringBuilder("Hello, dude!\n This program allow you to perform some actions by your choice.\n Just pick number from the list bellow. For exit type something else\n");
         for (int i = 0; i < subroutines.size(); i++) {
-            programDescription.append(i + 1).append(". ").append(subroutines.get(i).getShortDescription()).append("\n");
+            Subroutine subroutine = subroutines.get(i);
+            programDescription.append(i + 1).append(". ").append(subroutine.getShortDescription());
+            if (subroutine instanceof ConsoleResponceSubroutine) {
+                programDescription.append(" or \"").append(((ConsoleResponceSubroutine) subroutine).getSubroutineURL()).append("\"");
+            }
+
+            programDescription.append("\n");
         }
         System.out.println(programDescription);
     }
