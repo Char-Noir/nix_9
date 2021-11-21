@@ -8,6 +8,7 @@ import ua.com.alevel.controller.UserController;
 import java.io.BufferedReader;
 
 public class CreateUser extends ConsoleResponceSubroutine {
+
     public final String LONG_DESCRIPTION = "Создает пользователя";
     public final String SHORT_DESCRIPTION = "Создать пользователя";
     public final String URL = "create";

@@ -1,6 +1,6 @@
 package ua.com.alevel.entity;
 
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 
     private String name;
     private int age;
@@ -22,7 +22,7 @@ public class User extends BaseEntity{
     }
 
     public void setName(String name) {
-        if(name==null){
+        if (name == null) {
             throw new NullPointerException("Name is null");
         }
         this.name = name;
@@ -33,7 +33,7 @@ public class User extends BaseEntity{
     }
 
     public void setAge(int age) {
-        if(age<0){
+        if (age < 0) {
             throw new IllegalArgumentException("Age must be bigger than or equals 0");
         }
         this.age = age;
@@ -45,6 +45,6 @@ public class User extends BaseEntity{
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                '}'+'\n';
+                '}' + '\n';
     }
 }

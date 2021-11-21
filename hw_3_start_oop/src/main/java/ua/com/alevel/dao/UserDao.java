@@ -6,6 +6,7 @@ import ua.com.alevel.implementations.DoubleLinkedListImpl;
 import java.util.UUID;
 
 public class UserDao implements BaseEntityDao<User> {
+
     private final DoubleLinkedListImpl<User> users;
     private static UserDao instance;
 
