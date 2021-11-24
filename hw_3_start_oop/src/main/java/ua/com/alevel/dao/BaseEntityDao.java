@@ -1,7 +1,6 @@
 package ua.com.alevel.dao;
 
-import ua.com.alevel.entity.BaseEntity;
-import ua.com.alevel.entity.User;
+import ua.com.alevel.logic.entity.BaseEntity;
 
 public interface BaseEntityDao<Entity extends BaseEntity> {
     void create(Entity user);

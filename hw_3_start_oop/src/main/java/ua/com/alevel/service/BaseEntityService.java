@@ -1,6 +1,6 @@
 package ua.com.alevel.service;
 
-import ua.com.alevel.entity.BaseEntity;
+import ua.com.alevel.logic.entity.BaseEntity;
 
 public interface BaseEntityService<Entity extends BaseEntity> {
      void create(Entity entity);
