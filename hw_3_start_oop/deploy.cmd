@@ -1,2 +1,2 @@
 call .\clean_install.cmd
-call .\run.cmd
+#call .\run.cmd

@@ -1,6 +1,7 @@
 package ua.com.alevel.console;
 
-import ua.com.alevel.console.annotation.ListSubroutineAnnotationAnalyze;
+import ua.com.alevel.console.annotation.impl.DBInitter;
+import ua.com.alevel.console.annotation.impl.ListSubroutineAnnotationAnalyze;
 import ua.com.alevel.console.responce.ConsoleResponceSubroutine;
 import ua.com.alevel.console.responce.Responce;
 
@@ -45,10 +46,15 @@ public class ConsoleHelper {
         }
     }
 
-    public static void runConsoleResponseApplication(List<ConsoleResponceSubroutine> subroutines) {
+    public static void runConsoleResponseApplication(List<ConsoleResponceSubroutine> subroutines, Class controllerI) {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             String redirect = null;
-            ListSubroutineAnnotationAnalyze.runFirstSubroutine(subroutines.toArray(new Subroutine[0]), bufferedReader);
+            System.out.println("Не хотите ли инициализировать базовые обьекты?(+/-)");
+            String answer = bufferedReader.readLine();
+            if (!answer.equals("-")) {
+                DBInitter.dbInitteralize(controllerI);
+                ListSubroutineAnnotationAnalyze.runFirstSubroutine(subroutines.toArray(new Subroutine[0]), bufferedReader);
+            }
             while (true) {
                 String line = null;
                 if (redirect == null) {
