@@ -1,7 +1,7 @@
 package ua.com.alevel.implementations;
 
-import ua.com.alevel.entity.BaseEntity;
 import ua.com.alevel.interfaces.DoubleLinkedList;
+import ua.com.alevel.logic.entity.BaseEntity;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -16,6 +16,13 @@ public class DoubleLinkedListImpl<Entity extends BaseEntity> implements DoubleLi
         _class = aClass;
         head.next = tail;
         tail.prev = head;
+    }
+
+    public DoubleLinkedListImpl(Entity[] array, Class<Entity> aClass) {
+        this(aClass);
+        for (Entity e : array){
+            add(e);
+        }
     }
 
     @Override
@@ -118,11 +125,6 @@ public class DoubleLinkedListImpl<Entity extends BaseEntity> implements DoubleLi
         }
     }
 
-    /**
-     * Removes the first occurrence of the specified element.
-     * Returns true if this list contained the specified element.
-     * (use 'equals' method to check an occurrence)
-     */
     @Override
     public Entity get(long id) {
         if (head.next != tail) {
@@ -258,15 +260,8 @@ public class DoubleLinkedListImpl<Entity extends BaseEntity> implements DoubleLi
 
         public boolean hasNext() {
             return current.next != tail;
-// ...
         }
 
-        /**
-         * returns the next element
-         * if there is no element to return this method
-         * <p>
-         * must throw java.util.NoSuchElementException
-         */
         public Entity next() {
 
             if (hasNext()) {
@@ -276,9 +271,6 @@ public class DoubleLinkedListImpl<Entity extends BaseEntity> implements DoubleLi
             } else throw new NoSuchElementException();
         }
 
-        /**
-         * removes the element that was last returned by the next method
-         */
         public void remove() {
             if (b) {
                 current.prev.next = current.next;

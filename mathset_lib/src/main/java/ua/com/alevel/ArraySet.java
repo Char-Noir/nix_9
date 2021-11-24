@@ -92,9 +92,9 @@ public class ArraySet<Value> {
         set[size] = null;
     }
 
-    public void remove(Value x) {
+    public boolean remove(Value x) {
         if (!contains(x)) {
-            return;
+            return false;
         }
         boolean isRemoved = false;
         for (int i = 0; i < size - 1; i++) {
@@ -104,6 +104,7 @@ public class ArraySet<Value> {
             }
         }
         size--;
+        return true;
     }
 
     public Value[] cutArr(int startIndex, int endIndex) {
@@ -213,6 +214,14 @@ public class ArraySet<Value> {
             throw new IllegalArgumentException();
         }
         return set[index];
+    }
+
+    public Value get(Value value){
+        for (int i = 0; i < size; i++) {
+            if (set[i].equals(value))
+                return set[i];
+        }
+        throw new IllegalArgumentException("Object not found");
     }
 
     public String toString() {

@@ -1,4 +1,4 @@
-package ua.com.alevel.entity;
+package ua.com.alevel.logic.entity;
 
 import java.util.Objects;
 
