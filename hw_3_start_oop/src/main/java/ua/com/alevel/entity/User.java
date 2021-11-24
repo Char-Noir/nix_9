@@ -1,6 +1,8 @@
 package ua.com.alevel.entity;
 
-public class User extends BaseEntity{
+import ua.com.alevel.logic.entity.BaseEntity;
+
+public class User extends BaseEntity {
 
     private String name;
     private int age;

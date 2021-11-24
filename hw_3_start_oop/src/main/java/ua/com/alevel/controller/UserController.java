@@ -86,6 +86,4 @@ public class UserController implements BaseEntityController<User> {
         return Responce.getOk(stringBuilder.toString());
 
     }
-
-
 }

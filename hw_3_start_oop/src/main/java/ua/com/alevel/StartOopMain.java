@@ -16,6 +16,6 @@ public class StartOopMain {
         subroutines.add(new DeleteUser());
         subroutines.add(new ShowUserById());
         subroutines.add(new UsersShow());
-        ConsoleHelper.runConsoleResponseApplication(subroutines);
+        ConsoleHelper.runConsoleResponseApplication(subroutines,null);
     }
 }
