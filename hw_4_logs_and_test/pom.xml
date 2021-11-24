@@ -12,24 +12,111 @@
     <artifactId>hw_4_logs_and_test</artifactId>
 
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <java.version>17</java.version>
-        <commons.lang3.version>3.12.0</commons.lang3.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.shade.plugin.version>3.2.0</maven.shade.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <junit.version>4.13.1</junit.version>
+        <junit.jupiter.version>5.7.0</junit.jupiter.version>
+        <logback.version>1.2.3</logback.version>
+        <logs.folder>logs</logs.folder>
+        <logs.test.folder>test</logs.test.folder>
+        <logs.life.folder>life</logs.life.folder>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <log.path>${logs.folder}/${logs.test.folder}</log.path>
+                <log.info>${log.path}/info.log</log.info>
+                <log.warn>${log.path}/warn.log</log.warn>
+                <log.error>${log.path}/error.log</log.error>
+            </properties>
+        </profile>
+        <profile>
+            <id>life</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <log.path>${logs.folder}/${logs.life.folder}</log.path>
+                <log.info>${log.path}/info.log</log.info>
+                <log.warn>${log.path}/warn.log</log.warn>
+                <log.error>${log.path}/error.log</log.error>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ua.com.alevel</groupId>
+            <artifactId>array_helper</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>hw_4_logs_and_test</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>17</source>
+                    <target>17</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
@@ -56,5 +143,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
