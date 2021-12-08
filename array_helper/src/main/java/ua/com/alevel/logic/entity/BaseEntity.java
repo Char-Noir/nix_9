@@ -3,9 +3,9 @@ package ua.com.alevel.logic.entity;
 import java.util.Objects;
 
 public abstract class BaseEntity {
-    protected long id;
+    protected Long id;
 
-    public BaseEntity(long id) {
+    public BaseEntity(Long id) {
         this.id = id;
     }
 
@@ -17,11 +17,11 @@ public abstract class BaseEntity {
         return Objects.hash(id);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -30,6 +30,6 @@ public abstract class BaseEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BaseEntity that = (BaseEntity) o;
-        return id == that.id;
+        return Objects.equals(id, that.id);
     }
 }

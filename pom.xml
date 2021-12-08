@@ -20,6 +20,7 @@
         <module>mathset_lib</module>
         <module>hw_5_collections</module>
         <module>hw_4_logs_and_test</module>
+        <module>hw_7_ionio</module>
     </modules>
 
 

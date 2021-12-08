@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>nix_9</artifactId>
@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hw_4_logs_and_test</artifactId>
+    <artifactId>hw_7_ionio</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -97,7 +97,7 @@
     </dependencies>
 
     <build>
-        <finalName>hw_4_logs_and_test</finalName>
+        <finalName>hw_7_ionio</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -134,7 +134,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ua.com.alevel.LogsAndTestMain</mainClass>
+                                    <mainClass>ua.com.alevel.IoNioMain</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
