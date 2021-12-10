@@ -32,3 +32,6 @@ hs_err_pid*
 .project
 *.prefs
 dependency-reduced-pom.xml
+*.csv
+*.txt
+*.gz
