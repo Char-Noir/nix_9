@@ -33,7 +33,7 @@ public class FileManagerImpl<Entity extends BaseEntity> implements FileManager<E
     @Override
     public FileEntity<Entity> check(Class<Entity> clazz) {
         FileEntity<Entity> fileEntity = new FileEntity<>(clazz.getSimpleName(), outerPath, clazz);
-        File targetFile = new File(fileEntity.getFilePath() + fileEntity.getFileName());
+        File targetFile = new File(fileEntity.getFilePath() + '\\' + fileEntity.getFileName());
         return (targetFile.exists() ? fileEntity : null);
     }
 
@@ -48,8 +48,8 @@ public class FileManagerImpl<Entity extends BaseEntity> implements FileManager<E
     }
 
     private void copyFile(FileEntity<Entity> src, FileEntity<Entity> dest) throws IOException {
-        Path fileToMovePath = Paths.get(src.getFilePath() + src.getFileName());
-        Path targetPath = Paths.get(dest.getFilePath() + dest.getFileName());
+        Path fileToMovePath = Paths.get(src.getFilePath() + '\\' + src.getFileName());
+        Path targetPath = Paths.get(dest.getFilePath() + '\\' + dest.getFileName());
         Files.move(fileToMovePath, targetPath);
 
     }

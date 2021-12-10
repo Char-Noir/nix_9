@@ -11,6 +11,11 @@ import ua.com.alevel.logic.entity.BaseEntity;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 
 public class FileDBOperatorImpl<Entity extends BaseEntity> implements FileDBOperator<Entity> {
 
@@ -46,21 +51,44 @@ public class FileDBOperatorImpl<Entity extends BaseEntity> implements FileDBOper
             }
         }
         try {
-            assert fileEntity != null;
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileEntity.getFilePath() + fileEntity.getFileName()))) {
+            UserDefinedFileAttributeView viewRead =
+                    Files.getFileAttributeView(Paths.get(fileEntity.getFilePath() + '\\' + fileEntity.getFileName()), UserDefinedFileAttributeView.class);
+            String name = "user.backup";
+            ByteBuffer buf = ByteBuffer.allocate(viewRead.size(name));
+            viewRead.read(name, buf);
+            buf.flip();
+            String value = Charset.defaultCharset().toString();
+            backuper = Integer.parseInt(value);
+            System.out.println(backuper);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileEntity.getFilePath() + '\\' + fileEntity.getFileName()))) {
                 CSVHelper<Entity> csv = new CSVHelperImpl<>(getMyType());
                 writer.write(csv.getHeader());
                 for (Entity entity : list) {
                     writer.write(csv.objectsToString(entity));
                 }
             }
+            backuper++;
         } catch (Exception e) {
-            //throw new RuntimeException("Cannot write to file :" + e.getMessage());
-            e.printStackTrace();
+            throw new RuntimeException("Cannot write to file :" + e.getMessage());
+            //e.printStackTrace();
         }
         if (backuper >= 5) {
             backuper = 0;
             backup();
+        }
+        try {
+            UserDefinedFileAttributeView view =
+                    Files.getFileAttributeView(Paths.get(fileEntity.getFilePath() + '\\'
+                            + fileEntity.getFileName()), UserDefinedFileAttributeView.class);
+            ByteBuffer b = ByteBuffer.allocate(4);
+            b.putInt(backuper);
+            view.write("user.backup", b);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -71,7 +99,7 @@ public class FileDBOperatorImpl<Entity extends BaseEntity> implements FileDBOper
         if (fileEntity == null) {
             return list;
         }
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileEntity.getFilePath() + fileEntity.getFileName()))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileEntity.getFilePath() + '\\' + fileEntity.getFileName()))) {
             String line;
             reader.readLine();
             CSVHelper<Entity> csv = new CSVHelperImpl<>(getMyType());
