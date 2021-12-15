@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>date_helper</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>ua.com.alevel</groupId>
+            <artifactId>array_helper</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
     <properties>
