@@ -1,9 +1,7 @@
 package ua.com.alevel.util;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class ArrayHelper {
@@ -21,5 +19,22 @@ public class ArrayHelper {
         Collections.reverse(list);
         Entity[] obj = (Entity[]) Array.newInstance(clazz, 0);
         return list.toArray(obj);
+    }
+
+    public static String findFirstUnique(List<String> ints) {
+        Map<String, Integer> m = new HashMap<>();
+        for (String s : ints) {
+            if (m.containsKey(s)) {
+                m.put(s, m.get(s) + 1);
+            } else {
+                m.put(s, 1);
+            }
+        }
+        // Traverse array again and return
+        // first element with count 1.
+        for (String anInt : ints)
+            if (m.get(anInt) == 1)
+                return anInt;
+        return null;
     }
 }
