@@ -1,5 +1,6 @@
 package ua.com.alevel.level1;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,5 +18,9 @@ public class ArrayHelper {
     public static int calcUniqueEntry(List<Integer> array) {
         Set<Integer> uniqueEntries = new HashSet<>(array);
         return uniqueEntries.size();
+    }
+
+    public static int sum(int[] ints) {
+        return Arrays.stream(ints).sum();
     }
 }

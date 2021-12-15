@@ -2,14 +2,10 @@ package ua.com.alevel.subroutines;
 
 import ua.com.alevel.console.ConsoleSubroutine;
 import ua.com.alevel.graph.Dijkstra;
-import ua.com.alevel.graph.FloydWarshall;
 import ua.com.alevel.graph.NodeIndexer;
-import ua.com.alevel.util.ArrayHelper;
+import ua.com.alevel.graph.ShortestWayGraphAlghorithm;
 
 import java.io.BufferedReader;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class FindEasiestRoute extends ConsoleSubroutine {
     public final String LONG_DESCRIPTION = "Находит самый короткий путь между городами.";
@@ -95,7 +91,7 @@ public class FindEasiestRoute extends ConsoleSubroutine {
                     graph[index - 1][id - 1] = cost;
                 }
             }
-            Dijkstra floydWarshall = new Dijkstra().setVNum(vNum).setGraph(graph).setNodeIndexer(nodeIndexer);
+            ShortestWayGraphAlghorithm floydWarshall = new Dijkstra().setVNum(vNum).setGraph(graph).setNodeIndexer(nodeIndexer);
             int routes;
             System.out.println("Введите количество путей, которые вы хотите найти");
             do {
