@@ -45,6 +45,6 @@ public class UniqueNameFinder extends ConsoleSubroutine {
             System.err.println(ERROR_MESSAGE);
             System.out.println(EXPECTED_INPUT);
         }
-        System.out.println(new StringBuilder("Результат задания: ").append("Для такого масива имен").append('\n').append(new StringBuilder(String.valueOf(Arrays.stream(ints.toArray()).map(Object::toString).toArray()))).append("\n Было найдено такое уникальное имя:  ").append((uniques == null) ? " Никакое" : uniques));
+        System.out.println(new StringBuilder("Результат задания: ").append("Для такого масива имен").append('\n').append(ints).append("\nБыло найдено такое уникальное имя:  ").append((uniques == null) ? " Никакое" : uniques));
     }
 }
