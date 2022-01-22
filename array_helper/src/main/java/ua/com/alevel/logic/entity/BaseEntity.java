@@ -1,9 +1,12 @@
 package ua.com.alevel.logic.entity;
 
+import java.util.Date;
 import java.util.Objects;
 
 public abstract class BaseEntity {
     protected Long id;
+    protected Date created;
+    protected Date updated;
 
     public BaseEntity(Long id) {
         this.id = id;
