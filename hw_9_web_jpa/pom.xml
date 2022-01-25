@@ -52,6 +52,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        </dependency>
+        <dependency>
             <groupId>ua.com.alevel</groupId>
             <artifactId>array_helper</artifactId>
             <version>1.0</version>
