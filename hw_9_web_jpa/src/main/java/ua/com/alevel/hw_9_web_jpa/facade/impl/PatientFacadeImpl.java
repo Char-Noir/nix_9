@@ -101,7 +101,7 @@ public class PatientFacadeImpl implements PatientFacade {
         List<PatientResponseDto> list = all.getItems().
                 stream().
                 map(PatientResponseDto::new).
-                peek(dto -> dto.setRecCount((Integer) all.getOtherParamMap().get(dto.getId()))).
+                
                 collect(Collectors.toList());
 
         PageData<PatientResponseDto> pageData = new PageData<>();
