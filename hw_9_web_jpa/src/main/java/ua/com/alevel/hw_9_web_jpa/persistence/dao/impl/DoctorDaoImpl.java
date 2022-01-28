@@ -71,7 +71,7 @@ public class DoctorDaoImpl implements DoctorDao {
 
         List<Doctor> items = entityManager.createQuery(criteriaQuery)
                 .setFirstResult(page)
-                .setMaxResults(size)
+                .setMaxResults((size<1)? (int) count() :size)
                 .getResultList();
         if (items.isEmpty() && request.getCurrentPage() > 1) {
             throw new PageNotExistException("Page not found!");
