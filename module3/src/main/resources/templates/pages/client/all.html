@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table}">
+<head>
+    <meta charset="utf-8">
+    <title>clients</title>
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+
+    <!--/*@thymesVar id="pageData" type="PageData<ClientRequestDto>">*/-->
+    <!--/*@thymesVar id="getItems" type="List<ClientRequestDto>">*/-->
+    <tr th:each="client,iter : ${pageData.getItems()}">
+        <td th:text="${iter.count}"></td>
+        <td th:text="${client.getEmail()}"></td>
+        <td>
+            <a th:href="@{'/accounts/client/' + ${client.getId()}}" type="button" class="btn btn-primary">accounts</a>
+        </td>
+    </tr>
+
+</div>
+
+</body>
+</html>

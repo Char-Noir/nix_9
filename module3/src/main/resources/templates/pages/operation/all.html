@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table}">
+<head>
+    <meta charset="utf-8">
+    <title>accounts </title>
+    <link href="/css/row.css" rel="stylesheet">
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+
+    <!--/*@thymesVar id="pageData" type="PageData<ua.com.alevel.module3.dto.OperationResponseDto>">*/-->
+    <!--/*@thymesVar id="getItems" type="List<ua.com.alevel.module3.dto.OperationResponseDto>">*/-->
+    <tr  th:each="operation,iter : ${pageData.getItems()}" th:classappend="${operation.getIncome().id==id} ? income : outcome">
+        <td th:text="${iter.count}"></td>
+        <td th:text="${operation.getIncome().id.toString() + operation.getIncome().client.email }"></td>
+        <td th:text="${operation.getOutcome().id.toString() + operation.getOutcome().client.email }"></td>
+        <td th:text="${operation.datetime }"></td>
+        <td th:text="${operation.purpose }"></td>
+        <td th:text="${operation.sum }"></td>
+        <td th:text="${(operation.getIncome().id==id)? 'Income': 'Outcome' }"></td>
+    </tr>
+    <a href="#" onclick="download_table_as_csv('myTable');">Download as CSV</a>
+</div>
+<th:block layout:fragment="scripts">
+    <script th:src="@{/js/download.js}"></script>
+</th:block>
+
+</body>
+</html>

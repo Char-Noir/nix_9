@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table}">
+<head>
+    <meta charset="utf-8">
+    <title>accounts </title>
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+
+    <!--/*@thymesVar id="pageData" type="PageData<ua.com.alevel.module3.dto.AccountResponseDto>">*/-->
+    <!--/*@thymesVar id="getItems" type="List<ua.com.alevel.module3.dto.AccountResponseDto>">*/-->
+    <tr th:each="account,iter : ${pageData.getItems()}">
+        <td th:text="${iter.count}"></td>
+        <td th:text="${account.getClient().getEmail()}"></td>
+        <td th:text="${account.getBalance()}"></td>
+        <td>
+            <a th:href="@{${urlNext}+${account.getId().toString()}+${urlPast}}" type="button" th:text="${buttonName}"
+               class="btn btn-primary"></a>
+        </td>
+    </tr>
+
+</div>
+
+</body>
+</html>
