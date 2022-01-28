@@ -62,7 +62,7 @@ public class CrudRepositoryHelperImpl<
             specification = eAbstractSpecification.generateCriteriaPredicate(dataTableRequest, entityClass);
         }
 
-        PageRequest request = PageRequest.of(page, size, sort);
+        PageRequest request = PageRequest.of(page, (size<1)? (int) count() :size, sort);
 
         Page<E> pageEntity;
         if (specification == null) {

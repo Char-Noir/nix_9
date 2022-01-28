@@ -125,7 +125,7 @@ public class ReceptionDaoImpl implements ReceptionDao {
 
         List<Reception> items = entityManager.createQuery(criteriaQuery)
                 .setFirstResult(page)
-                .setMaxResults(size)
+                .setMaxResults((size<1)? (int) count() :size)
                 .getResultList();
 
         if (items.isEmpty() && request.getCurrentPage() > 1) {
