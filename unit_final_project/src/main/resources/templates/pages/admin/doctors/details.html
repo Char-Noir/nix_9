@@ -10,6 +10,9 @@
 <body>
 
 <div layout:fragment="auth_content">
+    <div>
+        <button class="btn btn-success" th:onclick="back()">Back</button>
+    </div>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">
@@ -31,12 +34,16 @@
                         <label>Specialization</label>
                         <i class="bi bi-envelope"></i><span th:text="${doctor.specialization}"></span>
                         <br/>
+                        <div class="btn-group">
+                            <a th:href="@{${'/admin/doctor/edit'}+${doctor.getId()}}" type="button"
+                               class="btn btn-primary">
+                                Edit</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

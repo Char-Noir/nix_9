@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/auth_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${patient.name}"></title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                        <h4 th:text="${patient.name}"></h4>
+                        <label>Date of birth</label>
+                        <i class="bi bi-envelope"></i><span th:text="${patient.dateOfBirth}"></span>
+                        <br/>
+                        <label>Phone</label>
+                        <i class="bi bi-envelope"></i><span th:text="${patient.phoneNumber}"></span>
+                        <br/>
+                        <label>Documents</label>
+                        <i class="bi bi-envelope"></i><span th:text="${patient.userDocuments}"></span>
+                        <br/>
+                        <div class="btn-group">
+                            <a th:href="@{${'/admin/patient/edit'}+${patient.getId()}}" type="button" class="btn btn-primary">
+                                Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

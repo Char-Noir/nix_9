@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/personal_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${patientOld.name}">Update Patient</title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <form th:action="@{${'/admin/patient/edit/post/'}+${patientOld.getId()}}" th:object="${patient}" method="post">
+        <div class="mb-3">
+            <label for="nameField" class="form-label">Full name</label>
+            <input type="text" class="form-control" th:value="${patientOld.name}" id="nameField" th:field="*{name}"
+                   aria-describedby="nameHelp">
+            <div id="nameHelp" class="form-text">Please insert your real name.</div>
+        </div>
+        <div class="mb-3">
+            <label for="dateField" class="form-label">BirthDay</label>
+            <input type="date" class="form-control" id="dateField"
+                   th:field="*{dateOfBirth}" th:value="${patientOld.dateOfBirth}" name="dateOfBirth"
+                   aria-describedby="dateHelp">
+            <div id="dateHelp" class="form-text">Please insert your birthday name.</div>
+        </div>
+        <div class="mb-3">
+            <label for="phoneField" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneField"
+                   th:field="*{phoneNumber}" th:value="${patientOld.phoneNumber}" name="phoneNumber"
+                   aria-describedby="phoneHelp">
+            <div id="phoneHelp" class="form-text">Please insert your phone number here.</div>
+        </div>
+        <div class="mb-3">
+            <label for="userField" class="form-label">Documents</label>
+            <input type="text" class="form-control" id="userField"
+                   th:field="*{userDocuments}" th:value="${patientOld.userDocuments}" name="userDocuments"
+                   aria-describedby="docsHelp">
+            <div id="docsHelp" class="form-text">Please insert your documents here.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

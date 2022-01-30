@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table_layout}">
+<head>
+
+    <meta charset="utf-8">
+    <title>Doctors</title>
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+    <tr th:each="patient,iter : ${pageData.getItems()}"
+        th:classappend="${(patient.getUser().getRole()=='deleted')?'table-danger':''}">
+        <td th:text="${patient.getId()}"></td>
+        <td th:text="${patient.getName()}"></td>
+        <td th:text="${patient.getDateOfBirth()}"></td>
+        <td th:text="${patient.getPhoneNumber()}"></td>
+        <td>
+            <a th:href="@{'/admin/patient/details/' + ${patient.getId()}}" type="button"
+               class="btn btn-success">Details</a>
+        </td>
+
+    </tr>
+</div>
+
+</body>
+</html>
