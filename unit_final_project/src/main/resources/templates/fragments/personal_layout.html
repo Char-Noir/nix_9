@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/auth_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>books</title>
+</head>
+<body>
+<div layout:fragment="auth_content">
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/account}">Profile</a>
+            <a th:if="${showAdmin}" class="navbar-brand" th:href="@{/account/admin}">Admin</a>
+            <a th:if="${showPatient}" class="navbar-brand" th:href="@{/account/patient}">Patient</a>
+            <a th:if="${showDoctor}" class="navbar-brand" th:href="@{/account/doctor}">Doctor</a>
+        </div>
+    </nav>
+    <div layout:fragment="personal_content"></div>
+</div>
+</body>
+</html>

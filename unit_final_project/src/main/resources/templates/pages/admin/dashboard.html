@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/personal_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>ChooseYourSide</title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <div class="card">
+        <div class="card-header">
+            Users
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${'Number: ' + ${users}}"></h5>
+            <p class="card-text">Check users list!</p>
+            <a th:href="@{/admin/user/s}" class="btn btn-primary">Check!</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Patients
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${'Number: ' + ${patients}}"></h5>
+            <p class="card-text">Check patients list!</p>
+            <a th:href="@{/admin/patient/s}" class="btn btn-primary">Check!</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Doctor
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${'Number: ' + ${doctors}}"></h5>
+            <p class="card-text">Check doctors list!</p>
+            <a th:href="@{/admin/doctor/s}" class="btn btn-primary">Check!</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Reception
+        </div>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${'Number: ' + ${receptions}}"></h5>
+            <p class="card-text">Check receptions list!</p>
+            <a th:href="@{/admin/reception/s}" class="btn btn-primary">Check!</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

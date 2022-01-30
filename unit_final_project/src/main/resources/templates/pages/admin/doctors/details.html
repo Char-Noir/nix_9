@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/auth_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${doctor.name}"></title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                        <h4 th:text="${doctor.name}"></h4>
+                        <label>Assessment</label>
+                        <i class="bi bi-envelope"></i><span th:text="${doctor.assessmentOfCertification}"></span>
+                        <br/>
+                        <label>Note</label>
+                        <i class="bi bi-envelope"></i><span th:text="${doctor.note}"></span>
+                        <br/>
+                        <label>Date of certification</label>
+                        <i class="bi bi-envelope"></i><span th:text="${doctor.dateOfCertification}"></span>
+                        <br/>
+                        <label>Category</label>
+                        <i class="bi bi-envelope"></i><span th:text="${doctor.category}"></span>
+                        <br/>
+                        <label>Specialization</label>
+                        <i class="bi bi-envelope"></i><span th:text="${doctor.specialization}"></span>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

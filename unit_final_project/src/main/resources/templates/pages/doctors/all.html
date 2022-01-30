@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table_layout}">
+<head>
+
+    <meta charset="utf-8">
+    <title>Doctors</title>
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+    <tr th:each="doctor,iter : ${pageData.getItems()}">
+        <td th:text="${doctor.getId()}"></td>
+
+        <td th:text="${doctor.getName()}"></td>
+        <td th:text="${doctor.getDateOfCertification()}"></td>
+        <td th:text="${doctor.getCategory()}"></td>
+        <td th:text="${doctor.getSpecialization()}"></td>
+        <td>
+            <a th:href="@{'/doctor/details/' + ${doctor.getId()}}" type="button" class="btn btn-success">Details</a>
+        </td>
+
+    </tr>
+</div>
+
+</body>
+</html>

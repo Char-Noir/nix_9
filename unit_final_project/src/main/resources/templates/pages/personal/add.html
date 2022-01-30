@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/personal_layout}">
+<head>
+    <meta charset="utf-8">
+    <title>ChooseYourSide</title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <div th:if="${showPatient}" class="card">
+        <div class="card-header">
+            Become a patient
+        </div>
+        <div  class="card-body">
+            <h5 class="card-title">Register as Patient</h5>
+            <p class="card-text">Enter basic information about yourself and you can make an appointment online.</p>
+            <a th:href="@{/patient/add}" class="btn btn-primary">Become a patient!</a>
+        </div>
+    </div>
+
+    <div th:if="${showDoctor}" class="card">
+        <div class="card-header">
+            Become a doctor
+        </div>
+        <div  class="card-body">
+            <h5 class="card-title">Register as Doctor</h5>
+            <p class="card-text">Enter basic information about yourself and you can serve an appointment.</p>
+            <a th:href="@{/doctor/add}" class="btn btn-primary">Become a doctor!</a>
+        </div>
+    </div>
+
+    <div th:if="${showError}" class="card">
+        <div class="card-header">
+            Sorry
+        </div>
+        <div  class="card-body">
+            <h5 class="card-title">Sorry</h5>
+            <p class="card-text">You will not be able to get new roles now.</p>
+            <a href="#" class="btn btn-primary" onclick="back()">Go back!</a>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
