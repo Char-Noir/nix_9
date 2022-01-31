@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class DataTableRequest {
 
-    private int page;
-    private int size;
-    private String order;
-    private String sort;
+    private int page = 1;
+    private int size = 10;
+    private String order = "asc";
+    private String sort = "id";
     private Map<String, String[]> requestParamMap;
 
     public DataTableRequest() {
