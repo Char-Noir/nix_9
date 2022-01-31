@@ -12,8 +12,8 @@
     <groupId>ua.com.alevel</groupId>
     <artifactId>unit_final_project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>unit_final_project</name>
-    <description>unit_final_project</description>
+    <name>unit_final_project_ambulatoria</name>
+    <description>unit_final_project_ambulatoria</description>
 
     <properties>
         <java.version>17</java.version>

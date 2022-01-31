@@ -2,11 +2,13 @@
 
 ## SQL
 
-Схема базы данных лежит в resources/sql/schema.sql Данные базы данных соответственно лежат в resources/sql/data.sql
+Схема базы данных лежит в resources/sql/schema.sql .
+</br></br>
+Данные базы данных соответственно лежат в resources/sql/data.sql
 
 ## Запуск
 
-Просто запустите <code>run.bat</code> и передийте на <a href="localhost:8080">localhost:8080</a>
+Просто запустите <code>run.cmd</code> и передийте на <a href="localhost:8080">localhost:8080</a>
 
 ## Авторизация
 
