@@ -36,6 +36,14 @@ public class Patient extends BaseEntity implements Worker {
     @JoinColumn(name = "id_user", nullable = false)
     private User user;
 
+    public Patient() {
+    }
+
+    public Patient(Long patient) {
+        super();
+        id = patient;
+    }
+
     public User getIdUser() {
         return user;
     }

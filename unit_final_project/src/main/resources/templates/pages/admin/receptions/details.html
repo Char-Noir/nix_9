@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/auth_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${reception.doctor.name} +'-'+${reception.patient.name}"></title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <div>
+        <button class="btn btn-success" th:onclick="back()">Back</button>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                        <label>Date and Time</label>
+                        <i class="bi bi-envelope"></i><span th:text="${reception.dateTime}"></span>
+                        <br/>
+                        <label>Price</label>
+                        <i class="bi bi-envelope"></i><span th:text="${reception.receptionPrice}"></span>
+                        <br/>
+                        <label>Review</label>
+                        <i class="bi bi-envelope"></i><span th:text="${reception.reviewComment}"></span>
+                        <br/>
+                        <label>Patient</label>
+                        <i class="bi bi-envelope"></i><a
+                            th:href="'/admin/patient/details/'+${reception.patient.getId()}"
+                            th:text="${reception.patient.name}"></a>
+                        <br/>
+                        <label>Doctor</label>
+                        <i class="bi bi-envelope"></i><a th:href="'/admin/doctor/details/'+${reception.doctor.getId()}"
+                                                         th:text="${reception.doctor.name}"></a>
+                        <br/>
+                        <div class="btn-group">
+                            <a th:href="@{${'/admin/reception/edit/'}+${reception.getId()}}" type="button"
+                               class="btn btn-primary">
+                                Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

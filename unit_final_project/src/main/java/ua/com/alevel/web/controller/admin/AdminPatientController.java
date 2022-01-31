@@ -7,15 +7,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import ua.com.alevel.facade.PatientFacade;
+import ua.com.alevel.facade.ReceptionFacade;
 import ua.com.alevel.facade.UserFacade;
 import ua.com.alevel.validated.ValidId;
 import ua.com.alevel.web.controller.AbstractController;
 import ua.com.alevel.web.dto.request.patient.PatientRequestDto;
 import ua.com.alevel.web.dto.response.PageData;
 import ua.com.alevel.web.dto.response.patient.PatientResponseDto;
+import ua.com.alevel.web.dto.response.reception.ReceptionResponseDto;
 import ua.com.alevel.web.dto.response.user.UserResponseDto;
 
 import static ua.com.alevel.web.controller.ControllerUtils.PATIENT_COLUMNS;
+import static ua.com.alevel.web.controller.ControllerUtils.RECEPTION_COLUMNS;
 
 @Controller
 @RequestMapping("/admin/patient")
@@ -24,11 +27,13 @@ public class AdminPatientController extends AbstractController {
 
     private final PatientFacade patientFacade;
     private final UserFacade userFacade;
+    private final ReceptionFacade receptionFacade;
 
 
-    public AdminPatientController(PatientFacade patientFacade, UserFacade userFacade) {
+    public AdminPatientController(PatientFacade patientFacade, UserFacade userFacade, ReceptionFacade receptionFacade) {
         this.patientFacade = patientFacade;
         this.userFacade = userFacade;
+        this.receptionFacade = receptionFacade;
     }
 
     @GetMapping("/s")
@@ -43,7 +48,22 @@ public class AdminPatientController extends AbstractController {
 
     @PostMapping("s/all")
     public ModelAndView findAllRedirect(WebRequest request, ModelMap model) {
-        return findAllRedirect(request, model, "patient/s");
+        return findAllRedirect(request, model, "admin/patient/s");
+    }
+
+    @GetMapping("/receptions/{id}")
+    public String receptions(@PathVariable @ValidId Long id, Model model, WebRequest webRequest) {
+        PageData<ReceptionResponseDto> response = receptionFacade.findAllByPatient(webRequest, id);
+        initDataTable(response, RECEPTION_COLUMNS, model);
+        model.addAttribute("createUrl", "/admin/patient/receptions/all/" + id);
+        model.addAttribute("nextUrl", "/admin/reception/details/");
+        model.addAttribute("cardHeader", "ReceptionsByPatient");
+        return "pages/admin/receptions/all";
+    }
+
+    @PostMapping("/receptions/all/{id}")
+    public ModelAndView findAllRedirect(@PathVariable @ValidId Long id, WebRequest request, ModelMap model) {
+        return findAllRedirect(request, model, "admin/patient/receptions/" + id);
     }
 
     @GetMapping("/details/{id}")

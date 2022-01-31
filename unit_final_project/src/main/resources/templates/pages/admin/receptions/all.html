@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table_layout}">
+<head>
+
+    <meta charset="utf-8">
+    <title>Receptions</title>
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+    <tr th:each="reception,iter : ${pageData.getItems()}">
+        <td th:text="${reception.getId()}"></td>
+        <td th:text="${reception.getDateTime()}"></td>
+        <td th:text="${reception.getDoctor().getName()}"></td>
+        <td th:text="${reception.getPatient().getName()}"></td>
+
+        <td>
+            <a th:href="@{'/admin/reception/details/' + ${reception.getId()}}" type="button"
+               class="btn btn-success">Details</a>
+        </td>
+    </tr>
+</div>
+
+</body>
+</html>

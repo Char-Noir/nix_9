@@ -11,7 +11,7 @@
 
 <div layout:fragment="auth_content">
     <div class="container">
-        <div class="row">
+        <div class="row" th:if="${pageData.getItems().size()!=0}">
             <div class="col-12">
                 <div class="card mb-2 mt-2">
                     <div class="card-header" th:text="${cardHeader}">
@@ -122,6 +122,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+            <h1>There are no items here</h1>
         </div>
 
         <form method="POST" th:action="@{${createUrl}}" id="personalSearch">

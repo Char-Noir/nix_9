@@ -8,6 +8,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 import ua.com.alevel.facade.DoctorFacade;
 import ua.com.alevel.facade.EnumFacade;
+import ua.com.alevel.facade.ReceptionFacade;
 import ua.com.alevel.facade.UserFacade;
 import ua.com.alevel.persistence.entity.doctor.Category;
 import ua.com.alevel.persistence.entity.doctor.Specialization;
@@ -16,9 +17,11 @@ import ua.com.alevel.web.controller.AbstractController;
 import ua.com.alevel.web.dto.request.doctor.DoctorRequestDto;
 import ua.com.alevel.web.dto.response.PageData;
 import ua.com.alevel.web.dto.response.doctor.DoctorResponseDto;
+import ua.com.alevel.web.dto.response.reception.ReceptionResponseDto;
 import ua.com.alevel.web.dto.response.user.UserResponseDto;
 
 import static ua.com.alevel.web.controller.ControllerUtils.DOCTOR_COLUMNS;
+import static ua.com.alevel.web.controller.ControllerUtils.RECEPTION_COLUMNS;
 
 @Controller
 @RequestMapping("/admin/doctor")
@@ -29,12 +32,14 @@ public class AdminDoctorController extends AbstractController {
     private final UserFacade userFacade;
     private final EnumFacade<Category> categoryEnumFacade;
     private final EnumFacade<Specialization> specializationEnumFacadeEnumFacade;
+    private final ReceptionFacade receptionFacade;
 
-    public AdminDoctorController(DoctorFacade doctorFacade, UserFacade userFacade, EnumFacade<Category> categoryEnumFacade, EnumFacade<Specialization> specializationEnumFacadeEnumFacade) {
+    public AdminDoctorController(DoctorFacade doctorFacade, UserFacade userFacade, EnumFacade<Category> categoryEnumFacade, EnumFacade<Specialization> specializationEnumFacadeEnumFacade, ReceptionFacade receptionFacade) {
         this.doctorFacade = doctorFacade;
         this.userFacade = userFacade;
         this.categoryEnumFacade = categoryEnumFacade;
         this.specializationEnumFacadeEnumFacade = specializationEnumFacadeEnumFacade;
+        this.receptionFacade = receptionFacade;
     }
 
     @GetMapping("/s")
@@ -49,7 +54,7 @@ public class AdminDoctorController extends AbstractController {
 
     @PostMapping("s/all")
     public ModelAndView findAllRedirect(WebRequest request, ModelMap model) {
-        return findAllRedirect(request, model, "doctor/s");
+        return findAllRedirect(request, model, "admin/doctor/s");
     }
 
     @GetMapping("/details/{id}")
@@ -57,6 +62,21 @@ public class AdminDoctorController extends AbstractController {
         DoctorResponseDto dto = doctorFacade.findById(id);
         model.addAttribute("doctor", dto);
         return "pages/admin/doctors/details";
+    }
+
+    @GetMapping("/receptions/{id}")
+    public String receptions(@PathVariable @ValidId Long id, Model model, WebRequest webRequest) {
+        PageData<ReceptionResponseDto> response = receptionFacade.findAllByDoctor(webRequest, id);
+        initDataTable(response, RECEPTION_COLUMNS, model);
+        model.addAttribute("createUrl", "/admin/doctor/receptions/all/" + id);
+        model.addAttribute("nextUrl", "/admin/reception/details/");
+        model.addAttribute("cardHeader", "ReceptionsByDoctor");
+        return "pages/admin/receptions/all";
+    }
+
+    @PostMapping("/receptions/all/{id}")
+    public ModelAndView findAllRedirect(@PathVariable @ValidId Long id, WebRequest request, ModelMap model) {
+        return findAllRedirect(request, model, "admin/doctor/receptions/" + id);
     }
 
     @GetMapping("/add/{id}")
