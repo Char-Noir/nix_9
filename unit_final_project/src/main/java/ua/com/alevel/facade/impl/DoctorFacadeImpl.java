@@ -45,6 +45,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
             doctor1.setSpecialization(new Specialization(doctorRequestDto.getSpecialization()));
             doctor1.setCategory(new Category(doctorRequestDto.getCategory()));
             doctorService.update(doctor1);
+            return;
         }
         throw new EntityNotFoundException("There are no such doctor");
     }
@@ -77,7 +78,7 @@ public class DoctorFacadeImpl implements DoctorFacade {
     }
 
     @Override
-    public long count() {
+    public Long count() {
         return doctorService.count();
     }
 

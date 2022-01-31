@@ -10,7 +10,7 @@
 <body>
 
 <div layout:fragment="auth_content">
-    <form th:action="@{/admin/patient/add/post}" th:object="${patient}" method="post">
+    <form th:action="@{'/admin/patient/add/post/'+${user.getId()}}" th:object="${patient}" method="post">
         <div class="mb-3">
             <label for="nameField" class="form-label">Full name</label>
             <input type="text" class="form-control" id="nameField" th:field="*{name}"

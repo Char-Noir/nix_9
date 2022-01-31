@@ -34,15 +34,15 @@ public class UserFacadeImpl implements UserFacade {
     @Override
     public void update(UserRequestDto userRequestDto, Long id) {
         Optional<User> user1 = userService.findById(id);
+        System.out.println(user1);
         if (user1.isPresent()) {
             User user = user1.get();
             if (userRequestDto.getEmail() != null) {
                 user.setEmail(userRequestDto.getEmail());
             }
-            if (userRequestDto.getPassword() != null) {
-                user.setPassword(userRequestDto.getPassword());
-            }
+            System.out.println(user);
             userService.update(user);
+            return;
         }
         throw new EntityNotFoundException("There are no such user");
     }
@@ -75,7 +75,7 @@ public class UserFacadeImpl implements UserFacade {
     }
 
     @Override
-    public long count() {
+    public Long count() {
         return userService.count();
     }
 

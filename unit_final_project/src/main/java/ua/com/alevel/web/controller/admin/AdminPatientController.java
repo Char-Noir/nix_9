@@ -59,6 +59,7 @@ public class AdminPatientController extends AbstractController {
         if (user == null || !user.getVisible()) {
             return "redirect:/admin/patient/s/";
         }
+        model.addAttribute("user", user);
         model.addAttribute("patient", new PatientRequestDto());
         return "pages/admin/patients/add";
     }

@@ -2,7 +2,6 @@ package ua.com.alevel.persistence.entity.user;
 
 import ua.com.alevel.persistence.entity.BaseEntity;
 import ua.com.alevel.persistence.type.RoleType;
-import ua.com.alevel.web.dto.request.user.UserRequestDto;
 
 import javax.persistence.*;
 
@@ -74,5 +73,16 @@ public class User extends BaseEntity {
 
     public void setRoleType(RoleType roleType) {
         this.roleType = roleType;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "enabled=" + enabled +
+                ", id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roleType=" + roleType +
+                '}';
     }
 }

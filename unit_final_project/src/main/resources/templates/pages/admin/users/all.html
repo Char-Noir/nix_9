@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/data_table_layout}">
+<head>
+
+    <meta charset="utf-8">
+    <title>Users</title>
+</head>
+<body>
+
+<div layout:fragment="data_table_content">
+    <tr th:each="user,iter : ${pageData.getItems()}"
+        th:classappend="${(user.getRole()=='deleted')?'table-danger':''}">
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td th:text="${user.getRole()}"></td>
+        <td>
+            <a th:href="@{'/admin/user/details/' + ${user.getId()}}" type="button"
+               class="btn btn-success">Details</a>
+        </td>
+
+    </tr>
+</div>
+
+</body>
+</html>

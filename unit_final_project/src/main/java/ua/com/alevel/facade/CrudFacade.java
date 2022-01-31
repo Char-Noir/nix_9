@@ -17,5 +17,5 @@ public interface CrudFacade<REQ extends RequestDto, RES extends ResponseDto> {
 
     PageData<RES> findAll(WebRequest request);
 
-    long count();
+    Long count();
 }

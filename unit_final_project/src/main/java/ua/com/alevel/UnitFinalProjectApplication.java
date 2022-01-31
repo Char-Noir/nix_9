@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ua.com.alevel.persistence.entity.user.User;
 import ua.com.alevel.persistence.repository.user.UserRepository;
@@ -21,15 +20,12 @@ public class UnitFinalProjectApplication {
 
     private final BCryptPasswordEncoder encoder;
     private final UserRepository<User> personalRepository;
-    private final ElasticsearchOperations elasticsearchOperations;
 
     public UnitFinalProjectApplication(
             BCryptPasswordEncoder encoder,
-            UserRepository<User> personalRepository,
-            ElasticsearchOperations elasticsearchOperations) {
+            UserRepository<User> personalRepository) {
         this.encoder = encoder;
         this.personalRepository = personalRepository;
-        this.elasticsearchOperations = elasticsearchOperations;
     }
 
     public static void main(String[] args) {

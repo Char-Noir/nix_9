@@ -26,7 +26,7 @@
                         <i class="bi bi-envelope"></i><span th:text="${patient.userDocuments}"></span>
                         <br/>
                         <div class="btn-group">
-                            <a th:href="@{${'/admin/patient/edit'}+${patient.getId()}}" type="button" class="btn btn-primary">
+                            <a th:href="@{${'/admin/patient/edit/'}+${patient.getId()}}" type="button" class="btn btn-primary">
                                 Edit</a>
                         </div>
                     </div>

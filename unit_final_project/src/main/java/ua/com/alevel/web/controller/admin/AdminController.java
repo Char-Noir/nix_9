@@ -25,9 +25,9 @@ public class AdminController extends AbstractController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
-        model.addAttribute("users", userFacade.count());
-        model.addAttribute("doctors", doctorFacade.count());
-        model.addAttribute("patients", patientFacade.count());
+        model.addAttribute("users", userFacade.count().toString());
+        model.addAttribute("doctors", doctorFacade.count().toString());
+        model.addAttribute("patients", patientFacade.count().toString());
         model.addAttribute("receptions", 0);
         return "pages/admin/dashboard";
     }

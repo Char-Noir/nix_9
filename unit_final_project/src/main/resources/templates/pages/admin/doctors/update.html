@@ -2,56 +2,62 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{fragments/personal_layout}">
+      layout:decorate="~{fragments/auth_layout}">
 <head>
     <meta charset="utf-8">
-    <title>Add Patient</title>
+    <title th:text="${doctorOld.name}"></title>
 </head>
 <body>
 
 <div layout:fragment="auth_content">
-    <form th:action="@{'/admin/doctor/add/post/'+${user.getId()}}" th:object="${doctor}" method="post">
+    <form th:action="@{${'/admin/doctor/edit/post/'}+${doctorOld.getId()}}" th:object="${doctor}" method="post">
         <div class="mb-3">
             <label for="nameField" class="form-label">Full name</label>
-            <input type="text" class="form-control" id="nameField" th:field="*{name}"
+            <input type="text" class="form-control" id="nameField" th:value="${doctorOld.name}" th:name="name"
                    aria-describedby="nameHelp">
             <div id="nameHelp" class="form-text">Please insert your real name.</div>
         </div>
         <div class="mb-3">
             <label for="assessmentOfSertification" class="form-label">Assessment</label>
-            <input type="number" min="0.1" step="0.1" class="form-control" id="assessmentOfSertification"
-                   th:field="*{assessmentOfSertification}"
+            <input type="number" min="0.1" step="0.1" class="form-control"
+                   th:value="${doctorOld.assessmentOfCertification}" id="assessmentOfSertification"
+                   th:name="assessmentOfSertification"
                    aria-describedby="assessmentOfSertificationHelp">
             <div id="assessmentOfSertificationHelp" class="form-text">Please insert assessment.</div>
         </div>
         <div class="mb-3">
             <label for="note" class="form-label">Note</label>
-            <input type="text" class="form-control" id="note"
-                   th:field="*{note}"
+            <input type="text" class="form-control" th:value="${doctorOld.note}" id="note"
+                   th:name="note"
                    aria-describedby="noteHelp">
             <div id="noteHelp" class="form-text">Please insert note.</div>
         </div>
         <div class="mb-3">
             <label for="dateOfCertification" class="form-label">Date of certification</label>
-            <input type="date" class="form-control" id="dateOfCertification"
-                   th:field="*{dateOfCertification}"
+            <input type="date" class="form-control" th:value="${doctorOld.dateOfCertification}" id="dateOfCertification"
+                   th:name="dateOfCertification"
                    aria-describedby="dateOfCertificationHelp">
             <div id="dateOfCertificationHelp" class="form-text">Please insert date of certification.</div>
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
-            <select th:field="*{category}" aria-describedby="categoryHelp" class="form-select" id="category"
+            <select th:name="category" aria-describedby="categoryHelp" class="form-select" id="category"
                     aria-label="Category">
-                <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+                <option th:each="cat : ${categories}" th:value="${cat.id}"
+                        th:selected="${cat.name == doctorOld.category}" th:text="${cat.name}">
+                </option>
             </select>
             <div id="categoryHelp" class="form-text">Please choose category.</div>
         </div>
         <div class="mb-3">
             <label for="specialization" class="form-label">Specialization</label>
-            <select th:field="*{specialization}" aria-describedby="specializationHelp" class="form-select"
+            <select th:name="specialization" aria-describedby="specializationHelp" class="form-select"
                     id="specialization"
                     aria-label="Specialization">
-                <option th:each="spec : ${specializations}" th:value="${spec.id}" th:text="${spec.name}"></option>
+                <option th:each="spec : ${specializations}" th:selected="${spec.name == doctorOld.specialization}"
+                        th:value="${spec.id}" th:text="${spec.name}">
+
+                </option>
             </select>
             <div id="specializationHelp" class="form-text">Please choose specialization.</div>
         </div>

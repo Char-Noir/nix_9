@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/auth_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${user.email}"></title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                        <label>Email</label>
+                        <i class="bi bi-envelope"></i><span th:text="${user.email}"></span>
+                        <br/>
+                        <label>Role</label>
+                        <i class="bi bi-person-circle"></i><span th:text="${user.role}"></span>
+                        <br/>
+                        <div class="btn-group">
+                            <a th:href="@{'/admin/user/edit/'+${user.getId()}}" type="button" class="btn btn-primary">
+                                Edit</a>
+                            <button onclick="document.getElementById('id01').style.display='block'" type="button"
+                                    class="btn btn-warning">
+                                Delete
+                            </button>
+                        </div>
+                        <br>
+                        <div class="btn-group">
+                            <a th:if="${user.role=='patient'|| user.role=='patient_doctor'}"
+                               th:href="@{'/admin/patient/details/'+${patientId}}" type="button"
+                               class="btn btn-primary">
+                                Patient</a>
+                            <a th:if="${user.role=='user'|| user.role=='doctor'}"
+                               th:href="@{'/admin/patient/add/'+${user.getId()}}" type="button"
+                               class="btn btn-primary">
+                                Add Patient</a>
+                            <a th:if="${user.role=='doctor'|| user.role=='patient_doctor'}"
+                               th:href="@{'/admin/doctor/details/'+${doctorId}}" type="button"
+                               class="btn btn-primary">
+                                Doctor</a>
+                            <a th:if="${user.role=='user'|| user.role=='patient'}"
+                               th:href="@{'/admin/doctor/add/'+${user.getId()}}" type="button"
+                               class="btn btn-primary">
+                                Add Doctor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+        <form method="post" class="modal-content" th:action="@{'/admin/user/delete/'+${user.getId()}}">
+            <div class="container">
+                <h1>Delete Account</h1>
+                <p>Are you sure you want to delete user?</p>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="deletebtn">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

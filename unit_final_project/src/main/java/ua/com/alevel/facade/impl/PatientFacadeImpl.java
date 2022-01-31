@@ -41,6 +41,7 @@ public class PatientFacadeImpl implements PatientFacade {
             patient1.setPhoneNumber(patientRequestDto.getPhoneNumber());
             patient1.setName(patientRequestDto.getName());
             patientService.update(patient1);
+            return;
         }
         throw new EntityNotFoundException("There are no such patient");
     }
@@ -73,7 +74,7 @@ public class PatientFacadeImpl implements PatientFacade {
     }
 
     @Override
-    public long count() {
+    public Long count() {
         return patientService.count();
     }
 

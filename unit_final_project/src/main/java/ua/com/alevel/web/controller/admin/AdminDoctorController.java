@@ -66,6 +66,7 @@ public class AdminDoctorController extends AbstractController {
             return "redirect:/admin/doctor/s/";
         }
         model.addAttribute("doctor", new DoctorRequestDto());
+        model.addAttribute("user", user);
         model.addAttribute("categories", categoryEnumFacade.findAll(Category.class));
         model.addAttribute("specializations", specializationEnumFacadeEnumFacade.findAll(Specialization.class));
         return "pages/admin/doctors/add";

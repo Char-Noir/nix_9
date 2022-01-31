@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/personal_layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${userOld.email}"></title>
+</head>
+<body>
+
+<div layout:fragment="auth_content">
+    <form th:action="@{'/admin/user/edit/post/'+${userOld.getId()}}" th:object="${user}" method="post">
+        <div class="mb-3">
+            <label for="emailField" class="form-label">Email</label>
+            <input type="text" class="form-control" id="emailField" th:value="${userOld.email}" th:field="*{email}"
+                   aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Please insert email.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <script>
+        function ready() {
+            var input = document.getElementById('emailField');
+            input.value = document.title;
+        }
+
+        document.addEventListener("DOMContentLoaded", ready);
+
+    </script>
+</div>
+
+</body>
+</html>
